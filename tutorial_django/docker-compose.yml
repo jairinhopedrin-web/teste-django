@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: tutorial_django_web
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:7030"
+    volumes:
+      - .:/app
+    ports:
+      - "7030:7030"
+    env_file:
+      - .env
